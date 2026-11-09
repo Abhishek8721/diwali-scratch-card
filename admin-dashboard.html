@@ -14,6 +14,9 @@
 </head>
 <body data-page="admin-dashboard">
 
+<!-- Mobile Sidebar Backdrop Overlay -->
+<div class="sidebar-backdrop" id="sidebar-backdrop" onclick="toggleMobileSidebar(false)"></div>
+
 <div class="dashboard-layout">
 
   <!-- ══════════════════ SIDEBAR ══════════════════════════════ -->
@@ -26,6 +29,7 @@
         <span class="sidebar-brand-main">Dhoom Dhaam</span>
         <span class="sidebar-brand-sub">Admin Dashboard</span>
       </div>
+      <button class="sidebar-close-btn" id="sidebar-close-btn" onclick="toggleMobileSidebar(false)" aria-label="Close menu">✕</button>
     </div>
 
     <nav class="sidebar-nav">
@@ -69,16 +73,28 @@
   <!-- ══════════════════ MAIN CONTENT ══════════════════════════ -->
   <main class="main-content" role="main">
     <div class="content-header">
-      <div>
-        <div class="content-title" id="section-title">📊 Dashboard Overview</div>
+      <div style="display:flex; align-items:center;">
+        <button class="mobile-menu-btn" id="mobile-menu-btn" onclick="toggleMobileSidebar(true)" aria-label="Open navigation menu">☰</button>
+        <div>
+          <div class="content-title" id="section-title">📊 Dashboard Overview</div>
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:12px;">
+      <div style="display:flex; align-items:center; gap:8px;">
         <div class="live-badge" id="cloud-status-badge">
           <div class="live-dot"></div>
           SYNCING...
         </div>
         <div class="header-time" id="admin-clock"></div>
       </div>
+    </div>
+
+    <!-- Mobile Scrollable Navigation Tabs -->
+    <div class="mobile-nav-pills" role="tablist">
+      <button class="mobile-nav-pill active" onclick="showSection('stats')">📊 Stats</button>
+      <button class="mobile-nav-pill" onclick="showSection('controls')">🎮 Controls</button>
+      <button class="mobile-nav-pill" onclick="showSection('queue')">📋 Queue</button>
+      <button class="mobile-nav-pill" onclick="showSection('activity')">🕐 Activity</button>
+      <button class="mobile-nav-pill" onclick="showSection('settings')">⚙️ Settings</button>
     </div>
 
     <div class="content-body">
@@ -468,17 +484,32 @@
     }
 
     document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
-    const links = document.querySelectorAll('.sidebar-link');
-    links.forEach(l => {
+    document.querySelectorAll('.sidebar-link').forEach(l => {
       if (l.getAttribute('onclick') && l.getAttribute('onclick').includes(`'${name}'`)) {
         l.classList.add('active');
       }
     });
 
+    document.querySelectorAll('.mobile-nav-pill').forEach(p => {
+      const match = p.getAttribute('onclick') && p.getAttribute('onclick').includes(`'${name}'`);
+      p.classList.toggle('active', !!match);
+    });
+
     const title = document.getElementById('section-title');
     if (title) title.textContent = sectionTitles[name] || name;
 
+    toggleMobileSidebar(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleMobileSidebar(open) {
+    const sidebar = document.querySelector('.sidebar');
+    const backdrop = document.getElementById('sidebar-backdrop');
+    if (!sidebar) return;
+    const shouldOpen = (typeof open === 'boolean') ? open : !sidebar.classList.contains('mobile-open');
+    sidebar.classList.toggle('mobile-open', shouldOpen);
+    if (backdrop) backdrop.classList.toggle('active', shouldOpen);
+    document.body.style.overflow = shouldOpen ? 'hidden' : '';
   }
 
   // ─── Live Clock ───────────────────────────────────────────────────

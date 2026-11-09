@@ -759,6 +759,7 @@ tbody tr:last-child td { border-bottom: none; }
   border: 1px solid rgba(46,204,113,0.3);
   padding: 4px 10px;
   border-radius: 20px;
+  white-space: nowrap;
 }
 
 .live-dot {
@@ -769,46 +770,316 @@ tbody tr:last-child td { border-bottom: none; }
   animation: lightBlink 1.5s ease-in-out infinite;
 }
 
-/* ─── Responsive ─────────────────────────────────────────── */
+/* ─── Mobile Sidebar Overlay Elements ─────────────────────── */
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-backdrop.active {
+  display: block;
+  opacity: 1;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: var(--gold);
+  border-radius: 8px;
+  width: 38px;
+  height: 38px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 10px;
+  transition: background 0.2s;
+}
+
+.mobile-menu-btn:hover {
+  background: rgba(255, 215, 0, 0.2);
+}
+
+.sidebar-close-btn {
+  display: none;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-left: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile Quick Nav Scrollable Pills */
+.mobile-nav-pills {
+  display: none;
+  gap: 8px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px 14px;
+  background: rgba(22, 27, 34, 0.98);
+  border-bottom: 1px solid var(--border);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  position: sticky;
+  top: 57px;
+  z-index: 98;
+}
+
+.mobile-nav-pills::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-nav-pill {
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.mobile-nav-pill.active {
+  background: linear-gradient(135deg, #FFD700, #FF6B00);
+  color: #1a0533;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+}
+
+/* ─── Responsive Breakdown ────────────────────────────────── */
 @media (max-width: 1024px) {
   .dashboard-layout {
     grid-template-columns: 220px 1fr;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .dashboard-layout {
     grid-template-columns: 1fr;
+    display: block;
+    min-height: 100vh;
   }
 
-  .sidebar {
-    position: relative;
-    height: auto;
-    flex-direction: row;
-    flex-wrap: wrap;
+  .mobile-menu-btn {
+    display: inline-flex;
   }
 
-  .sidebar-nav {
+  .mobile-nav-pills {
     display: flex;
+  }
+
+  /* Sidebar becomes slide-out mobile drawer */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+    max-width: 85vw;
+    height: 100vh;
+    z-index: 999;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.6);
+    background: #11161d;
+    overflow-y: auto;
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(300px);
+  }
+
+  .sidebar-close-btn {
+    display: inline-flex;
+  }
+
+  .sidebar-header {
+    padding: 18px 16px;
+  }
+
+  .content-header {
+    padding: 10px 14px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .content-title {
+    font-size: 1.15rem;
+  }
+
+  .header-time {
+    display: none;
+  }
+
+  .content-body {
+    padding: 14px 10px;
+    gap: 16px;
+  }
+
+  .dashboard-section {
+    border-radius: 14px;
+  }
+
+  .section-head {
+    padding: 12px 14px;
     flex-wrap: wrap;
-    padding: 10px;
-    gap: 4px;
+    gap: 8px;
   }
 
-  .sidebar-link {
-    padding: 8px 12px;
-    font-size: 0.8rem;
+  .section-head h2 {
+    font-size: 0.95rem;
   }
 
-  .content-body { padding: 20px; gap: 20px; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .controls-grid { grid-template-columns: 1fr; }
+  /* Stat cards in 2 clean columns */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 12px 10px;
+  }
+
+  .stat-card {
+    padding: 12px 8px;
+  }
+
+  .stat-icon {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+  }
+
+  /* Controls grid */
+  .controls-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 12px 10px;
+  }
+
+  .control-card {
+    padding: 14px 12px;
+  }
+
+  .control-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ctrl-group {
+    width: 100%;
+  }
+
+  .ctrl-input, .ctrl-select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
+  .btn-push {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    justify-content: center;
+  }
+
+  /* Table responsive touch scroll */
+  .table-wrap {
+    padding: 0 10px 14px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    min-width: 500px;
+  }
+
+  thead th, tbody td {
+    padding: 9px 10px;
+    font-size: 0.78rem;
+  }
+
+  /* Settings grid */
+  .settings-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px 10px;
+  }
+
+  .setting-row {
+    padding: 12px 10px;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .settings-actions {
+    padding: 0 10px 14px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-save, .btn-danger {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .login-card { padding: 32px 24px; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .content-body { padding: 16px; }
+  .login-card {
+    padding: 26px 16px;
+    margin: 8px;
+  }
+
+  .login-title {
+    font-size: 1.3rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 10px 8px;
+  }
+
+  .stat-card {
+    padding: 10px 6px;
+  }
+
+  .stat-value {
+    font-size: 1.35rem;
+  }
+
+  .content-header {
+    padding: 10px;
+  }
+
+  .live-badge {
+    padding: 3px 8px;
+    font-size: 0.65rem;
+  }
 }
 
 /* Light anim keyframe for dashboard */
