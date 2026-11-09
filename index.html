@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhoom Dhaam Diwali – Scratch & Win! 🪔</title>
+  <meta name="description" content="Celebrate Diwali with Dhoom Dhaam Crackers! Scratch your festive card and win exciting discount offers.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* Override font */
+    body { font-family: 'Poppins', 'Segoe UI', sans-serif; }
+  </style>
+</head>
+<body>
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Background Particles -->
+  <div id="particles-bg" aria-hidden="true"></div>
+
+  <!-- ═══════════════════ NAVBAR ═══════════════════════════ -->
+  <nav class="navbar" role="navigation">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/Dhoom Dhaam Diwali Fireworks Celebration.png"
+           alt="Dhoom Dhaam Crackers"
+           class="nav-logo-img">
+      <span class="nav-brand">
+        <span class="nav-brand-main">Dhoom Dhaam</span>
+        <span class="nav-brand-sub">Crackers – Scratch &amp; Win</span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="#offers-section" class="nav-link">🎁 Offers</a>
+      <a href="#how-it-works" class="nav-link">ℹ️ How it Works</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════ DIYA LIGHTS TOP ══════════════════ -->
+  <div class="diya-lights-row" aria-hidden="true">
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-gold"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-orange"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-red"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-green"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-blue"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-pink"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-gold"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-orange"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-red"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-green"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-blue"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-pink"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-gold"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-orange"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-red"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-green"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-blue"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-pink"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-gold"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-orange"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-red"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-green"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-blue"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-pink"></div></div>
+  </div>
+
+  <!-- ═══════════════════ HERO ═════════════════════════════ -->
+  <section class="hero" aria-label="Hero Section">
+    <p class="hero-eyebrow">🪔 &nbsp; Dhoom Dhaam Diwali Special &nbsp; 🪔</p>
+
+    <div class="hero-image-wrap">
+      <img src="assets/Dhoom Dhaam Diwali Fireworks Celebration.png"
+           alt="Dhoom Dhaam Diwali Celebration with Motu Patlu and fireworks"
+           class="hero-image"
+           loading="eager">
+      <span class="hero-badge">🎉 LIVE NOW!</span>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="line-gold">Celebrate Diwali –</span>
+      <span class="line-white">Scratch &amp; Win Exciting Offers!</span>
+    </h1>
+
+    <p class="hero-subtitle">
+      Your <strong>festive surprise</strong> is just one scratch away! 🎆<br>
+      Exclusive deals from <strong>10% to 30% OFF</strong> and special FREE gifts!
+    </p>
+
+    <div class="hero-cta-group">
+      <button class="btn-scratch-now scratch-now-btn" aria-label="Scratch your card now">
+        🪔 Scratch Now!
+      </button>
+      <a href="#how-it-works" class="btn-learn-more">How It Works ↓</a>
+    </div>
+
+    <div class="hero-stats" aria-label="Campaign statistics">
+      <div class="hero-stat">
+        <span class="hero-stat-num">30%</span>
+        <span class="hero-stat-label">Max Discount</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">🎁</span>
+        <span class="hero-stat-label">Free Gifts</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">∞</span>
+        <span class="hero-stat-label">Surprises</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ OFFER TABS ═══════════════════════ -->
+  <div id="offers-section" class="tabs-wrapper" aria-label="Offer categories">
+    <div class="section-title" style="margin-bottom:8px;">✨ Choose Your Offer Category ✨</div>
+    <p class="section-subtitle">Pick a tab, scratch your card, and win big this Diwali!</p>
+
+    <!-- Tab Nav -->
+    <div class="tabs-nav" role="tablist">
+      <button class="tab-btn tab-btn-offers active"
+              id="tab-offers"
+              role="tab"
+              aria-selected="true"
+              aria-controls="pane-offers"
+              data-tab="offers">
+        🎁 Festive Offers
+      </button>
+      <button class="tab-btn tab-btn-big"
+              id="tab-bigoffers"
+              role="tab"
+              aria-selected="false"
+              aria-controls="pane-bigoffers"
+              data-tab="bigOffers">
+        <span class="tab-crown">👑</span> Mega Diwali Offers
+      </button>
+    </div>
+
+    <!-- ─── Tab 1: Offers ──────────────────────────────── -->
+    <div class="tab-pane active" id="pane-offers" role="tabpanel" aria-labelledby="tab-offers">
+      <div class="section-title" style="font-size:1.5rem; margin-bottom:6px;">🎁 Festive Offers</div>
+      <p class="section-subtitle">Scratch to win random discounts from 10% to 20% OFF (e.g. 12%, 14%, 16%, 18%, 20%)!</p>
+
+      <div class="offer-cards-grid">
+        <div class="offer-preview-card" onclick="quickScratch('offers')">
+          <span class="card-diya">🪔</span>
+          <span class="offer-pct">12%</span>
+          <span class="offer-off-text">OFF</span>
+          <span class="scratch-hint-sm">🎊 Festive Surprise</span>
+        </div>
+        <div class="offer-preview-card" onclick="quickScratch('offers')">
+          <span class="card-diya">🪔</span>
+          <span class="offer-pct">16%</span>
+          <span class="offer-off-text">OFF</span>
+          <span class="scratch-hint-sm">🎊 Lucky Discount</span>
+        </div>
+        <div class="offer-preview-card" onclick="quickScratch('offers')">
+          <span class="card-diya">🪔</span>
+          <span class="offer-pct">20%</span>
+          <span class="offer-off-text">OFF</span>
+          <span class="scratch-hint-sm">🎊 Top Festive Deal</span>
+        </div>
+      </div>
+
+      <div class="tab-cta">
+        <button class="btn-scratch-tab scratch-now-btn" data-category="offers">
+          🎁 Scratch My Offers Card!
+        </button>
+      </div>
+    </div>
+
+    <!-- ─── Tab 2: Big Offers ──────────────────────────── -->
+    <div class="tab-pane" id="pane-bigOffers" role="tabpanel" aria-labelledby="tab-bigoffers">
+      <div class="section-title" style="font-size:1.5rem; margin-bottom:6px;">👑 Mega Diwali Offers</div>
+      <p class="section-subtitle">Premium scratch cards with MEGA random discounts up to 30% OFF (e.g. 24%, 26%, 28%, 30%)!</p>
+
+      <div class="offer-cards-grid">
+        <div class="offer-preview-card big-card" onclick="quickScratch('bigOffers')">
+          <span class="card-diya">🎆</span>
+          <span class="offer-pct">24%</span>
+          <span class="offer-off-text">OFF</span>
+          <span class="scratch-hint-sm">👑 Mega Surprise</span>
+        </div>
+        <div class="offer-preview-card big-card" onclick="quickScratch('bigOffers')">
+          <span class="card-diya">🎆</span>
+          <span class="offer-pct">28%</span>
+          <span class="offer-off-text">OFF</span>
+          <span class="scratch-hint-sm">👑 Bumper Discount</span>
+        </div>
+        <div class="offer-preview-card big-card" onclick="quickScratch('bigOffers')">
+          <span class="card-diya">🎆</span>
+          <span class="offer-pct">30%</span>
+          <span class="offer-off-text">OFF</span>
+          <span class="scratch-hint-sm">👑 Ultimate Deal</span>
+        </div>
+      </div>
+
+      <div class="tab-cta">
+        <button class="btn-scratch-tab btn-scratch-tab-big scratch-now-btn" data-category="bigOffers">
+          👑 Scratch My Mega Card!
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ SCRATCH SECTION ══════════════════ -->
+  <section id="scratch-section" aria-label="Scratch Card Area">
+    <div class="scratch-section-header">
+      <h2 class="scratch-section-title">🪔 Your Scratch Card 🪔</h2>
+      <p style="text-align:center; color:rgba(255,255,255,0.6); font-size:0.9rem; margin-top:6px;">
+        Use your finger or mouse to scratch and reveal your prize!
+      </p>
+    </div>
+
+    <!-- Scratch Card Container -->
+    <div id="scratch-card-container"></div>
+  </section>
+
+  <!-- ═══════════════════ RESULT MESSAGE ═══════════════════ -->
+  <div id="result-message-section"></div>
+
+  <!-- ═══════════════════ HOW IT WORKS ══════════════════════ -->
+  <section id="how-it-works" class="how-it-works" aria-label="How It Works">
+    <div class="section-title">🎆 How It Works</div>
+    <p class="section-subtitle">Three simple steps to your Diwali reward!</p>
+    <div class="hiw-grid">
+      <div class="hiw-step">
+        <span class="hiw-icon">🎁</span>
+        <h3>1. Choose Your Tab</h3>
+        <p>Pick between <strong>Festive Offers</strong> (10–20% OFF) or <strong>Mega Diwali Offers</strong> (25–30% OFF).</p>
+      </div>
+      <div class="hiw-step">
+        <span class="hiw-icon">🪙</span>
+        <h3>2. Scratch Your Card</h3>
+        <p>Use your finger on mobile or mouse on desktop to scratch the silver or golden surface.</p>
+      </div>
+      <div class="hiw-step">
+        <span class="hiw-icon">🎊</span>
+        <h3>3. Claim Your Prize!</h3>
+        <p>Reveal your prize, copy your coupon code, and use it at checkout for instant savings!</p>
+      </div>
+      <div class="hiw-step">
+        <span class="hiw-icon">🪔</span>
+        <h3>Celebrate Diwali!</h3>
+        <p>Share your win with family & friends. Spread the festive joy this Diwali season!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ DIYA LIGHTS BOTTOM ════════════════ -->
+  <div class="diya-lights-row" aria-hidden="true" style="margin-bottom:0;">
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-pink"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-blue"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-green"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-red"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-orange"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-gold"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-pink"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-blue"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-green"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-red"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-orange"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-gold"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-pink"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-blue"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-green"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-red"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-orange"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-gold"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-pink"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-blue"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-green"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-red"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-orange"></div></div>
+    <div class="light-string"><div class="light-wire"></div><div class="light-bulb lb-gold"></div></div>
+  </div>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════════════ -->
+  <footer>
+    <div class="footer-logo">🪔 Dhoom Dhaam Crackers 🪔</div>
+    <p>Scratch &amp; Win – Diwali 2026 Special Campaign</p>
+    <p style="margin-top:4px; font-size:0.75rem; opacity:0.5;">
+      One scratch per user. Results are pre-determined by our campaign system. T&amp;C apply.
+    </p>
+  </footer>
+
+  <!-- ═══════════════════ SCRIPTS ══════════════════════════ -->
+  <!-- Firebase SDKs for Multi-Phone Cloud Sync -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/confetti.js"></script>
+  <script src="js/scratch.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    // Helper to quick-scroll and activate from card click
+    function quickScratch(category) {
+      currentCategory = category;
+      // Sync tab state
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.tab === category);
+        b.setAttribute('aria-selected', b.dataset.tab === category);
+      });
+      document.querySelectorAll('.tab-pane').forEach(p => {
+        p.classList.toggle('active', p.id === `pane-${category}`);
+      });
+      smoothScrollTo('scratch-section');
+      setTimeout(() => activateScratchCard(), 500);
+    }
+
+    // Update clock in header
+    function updateClock() {
+      const el = document.getElementById('live-time');
+      if (el) el.textContent = new Date().toLocaleTimeString('en-IN');
+    }
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
+
