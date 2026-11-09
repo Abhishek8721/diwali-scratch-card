@@ -2,11 +2,8 @@
   "name": "diwali-scratch-card",
   "version": "1.0.0",
   "description": "Diwali Scratch & Win Promotional Website with Admin Dashboard",
+  "private": true,
   "scripts": {
-    "start": "node local-server.js"
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.21.2"
+    "build": "echo 'Static build ready'"
   }
 }
